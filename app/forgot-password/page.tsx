@@ -58,16 +58,28 @@ export default function ForgotPasswordPage() {
             />
           </div>
 
-          {message && <div className="text-green-500 text-sm">{message}</div>}
+          {message && (
+            <div className="space-y-4">
+              <div className="text-green-500 text-sm">{message}</div>
+              <Link 
+                href="/reset-password"
+                className="block w-full text-center rounded-xl bg-primary py-4 font-semibold text-white transition-all hover:bg-primary/90"
+              >
+                Go to Reset Page
+              </Link>
+            </div>
+          )}
           {error && <div className="text-red-500 text-sm">{error}</div>}
 
-          <button
-            type="submit"
-            disabled={loading}
-            className="w-full rounded-xl bg-primary py-4 font-semibold text-white transition-all hover:bg-primary/90 disabled:opacity-50"
-          >
-            {loading ? "Sending..." : "Send Reset Code"}
-          </button>
+          {!message && (
+            <button
+              type="submit"
+              disabled={loading}
+              className="w-full rounded-xl bg-primary py-4 font-semibold text-white transition-all hover:bg-primary/90 disabled:opacity-50"
+            >
+              {loading ? "Sending..." : "Send Reset Code"}
+            </button>
+          )}
         </form>
 
         <div className="mt-8 text-center">
