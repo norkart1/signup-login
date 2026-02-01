@@ -13,7 +13,6 @@ export async function POST(request: NextRequest) {
 
     const user = await User.findOne({ email });
     if (!user) {
-      console.log(`Reset requested for non-existent email: ${email}`);
       return NextResponse.json({ message: "If an account exists, a code has been sent." });
     }
 
@@ -21,7 +20,6 @@ export async function POST(request: NextRequest) {
     const expires = Date.now() + 10 * 60 * 1000; // 10 mins
 
     resetStore.set(email, { code, expires });
-    console.log(`Generated reset code for ${email}: ${code}`);
 
     const transporter = nodemailer.createTransport({
       service: "gmail",
