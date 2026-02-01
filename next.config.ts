@@ -1,7 +1,7 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // @ts-ignore - allowedDevOrigins is required for Replit's proxy but not in official types yet
+  // @ts-ignore - allowedDevOrigins is required for Replit's proxy
   experimental: {
     allowedDevOrigins: ["*"],
   },
