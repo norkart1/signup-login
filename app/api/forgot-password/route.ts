@@ -2,9 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 import dbConnect from "@/lib/mongodb";
 import User from "@/models/User";
-
-// Temporary store for reset codes
-const resetStore = new Map<string, { code: string; expires: number }>();
+import ResetCode from "@/models/ResetCode";
 
 export async function POST(request: NextRequest) {
   try {
@@ -17,9 +15,13 @@ export async function POST(request: NextRequest) {
     }
 
     const code = Math.floor(100000 + Math.random() * 900000).toString();
-    const expires = Date.now() + 10 * 60 * 1000; // 10 mins
+    const expires = new Date(Date.now() + 10 * 60 * 1000); // 10 mins
 
-    resetStore.set(email, { code, expires });
+    await ResetCode.findOneAndUpdate(
+      { email },
+      { code, expires },
+      { upsert: true, new: true }
+    );
 
     const transporter = nodemailer.createTransport({
       service: "gmail",
@@ -55,5 +57,3 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ error: "Failed to process request" }, { status: 500 });
   }
 }
-
-export { resetStore };

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from "next/server";
 import dbConnect from "@/lib/mongodb";
 import User from "@/models/User";
-import { resetStore } from "../forgot-password/route";
+import ResetCode from "@/models/ResetCode";
 import bcrypt from "bcryptjs";
 
 export async function POST(request: NextRequest) {
@@ -9,14 +9,14 @@ export async function POST(request: NextRequest) {
     const { email, code, newPassword } = await request.json();
     await dbConnect();
 
-    const storedData = resetStore.get(email);
+    const storedData = await ResetCode.findOne({ email });
 
     if (!storedData) {
       return NextResponse.json({ error: "No reset request found for this email." }, { status: 400 });
     }
 
-    if (Date.now() > storedData.expires) {
-      resetStore.delete(email);
+    if (new Date() > storedData.expires) {
+      await ResetCode.deleteOne({ email });
       return NextResponse.json({ error: "Reset code has expired." }, { status: 400 });
     }
 
@@ -27,7 +27,7 @@ export async function POST(request: NextRequest) {
     const hashedPassword = await bcrypt.hash(newPassword, 10);
     await User.findOneAndUpdate({ email }, { password: hashedPassword });
 
-    resetStore.delete(email);
+    await ResetCode.deleteOne({ email });
 
     return NextResponse.json({ message: "Password updated successfully" });
   } catch (error) {
