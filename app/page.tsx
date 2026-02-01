@@ -142,7 +142,7 @@ export default function Home() {
                       <h3 className="mb-1 text-lg font-semibold">{detail.title}</h3>
                       <p className="text-zinc-600 dark:text-zinc-400">{detail.description}</p>
                       <div className="mt-4 text-xs text-zinc-400">
-                        {new Date(detail.createdAt).toLocaleDateString()} at {new Date(detail.createdAt).toLocaleDateTimeString()}
+                        {new Date(detail.createdAt).toLocaleDateString()} at {new Date(detail.createdAt).toLocaleTimeString()}
                       </div>
                     </div>
                   ))
