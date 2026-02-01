@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@types/nodemailer": "^7.0.9",
+    "mongoose": "^9.1.5",
     "next": "16.1.6",
     "nodemailer": "^7.0.13",
     "react": "19.2.3",
