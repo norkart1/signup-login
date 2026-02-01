@@ -54,9 +54,9 @@ export default function ResetPasswordPage() {
 
   if (success) {
     return (
-      <div className="min-h-screen flex items-center justify-center p-6 bg-gradient-to-br from-blue-50 to-indigo-100 px-4">
+      <div className="min-h-screen flex items-center justify-center p-6 bg-transparent px-4">
         <div className="glass w-full max-w-md rounded-3xl p-8 text-center shadow-2xl ring-1 ring-white/10">
-          <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4 text-green-600">
+          <div className="w-16 h-16 bg-green-100/10 rounded-full flex items-center justify-center mx-auto mb-4 text-green-500">
             <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
             </svg>
@@ -88,7 +88,7 @@ export default function ResetPasswordPage() {
               value={formData.email}
               onChange={handleChange}
               required
-              className="w-full rounded-xl border border-zinc-200 bg-white/50 px-4 py-3 outline-none transition-all focus:border-primary focus:ring-4 focus:ring-primary/10 dark:border-zinc-800 dark:bg-black/20"
+              className="w-full rounded-xl border border-zinc-800 bg-white/5 px-4 py-3 outline-none transition-all focus:border-primary focus:ring-4 focus:ring-primary/10"
               placeholder="name@example.com"
             />
           </div>
@@ -100,7 +100,7 @@ export default function ResetPasswordPage() {
               value={formData.code}
               onChange={handleChange}
               required
-              className="w-full rounded-xl border border-zinc-200 bg-white/50 px-4 py-3 outline-none transition-all focus:border-primary focus:ring-4 focus:ring-primary/10 dark:border-zinc-800 dark:bg-black/20 text-center tracking-widest font-mono"
+              className="w-full rounded-xl border border-zinc-800 bg-white/5 px-4 py-3 outline-none transition-all focus:border-primary focus:ring-4 focus:ring-primary/10 text-center tracking-widest font-mono"
               placeholder="000000"
             />
           </div>
@@ -112,7 +112,7 @@ export default function ResetPasswordPage() {
               value={formData.newPassword}
               onChange={handleChange}
               required
-              className="w-full rounded-xl border border-zinc-200 bg-white/50 px-4 py-3 outline-none transition-all focus:border-primary focus:ring-4 focus:ring-primary/10 dark:border-zinc-800 dark:bg-black/20"
+              className="w-full rounded-xl border border-zinc-800 bg-white/5 px-4 py-3 outline-none transition-all focus:border-primary focus:ring-4 focus:ring-primary/10"
               placeholder="••••••••"
             />
           </div>
@@ -124,12 +124,12 @@ export default function ResetPasswordPage() {
               value={formData.confirmPassword}
               onChange={handleChange}
               required
-              className="w-full rounded-xl border border-zinc-200 bg-white/50 px-4 py-3 outline-none transition-all focus:border-primary focus:ring-4 focus:ring-primary/10 dark:border-zinc-800 dark:bg-black/20"
+              className="w-full rounded-xl border border-zinc-800 bg-white/5 px-4 py-3 outline-none transition-all focus:border-primary focus:ring-4 focus:ring-primary/10"
               placeholder="••••••••"
             />
           </div>
 
-          {error && <div className="text-red-500 text-sm bg-red-50/50 p-3 rounded-xl border border-red-100">{error}</div>}
+          {error && <div className="text-red-500 text-sm bg-red-500/10 p-3 rounded-xl border border-red-500/20">{error}</div>}
 
           <button
             type="submit"
