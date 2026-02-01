@@ -41,6 +41,8 @@ export async function POST(request: NextRequest) {
           <div style="background-color: #f3f4f6; padding: 20px; text-align: center; border-radius: 8px;">
             <span style="font-size: 32px; font-weight: bold; letter-spacing: 8px; color: #1f2937;">${code}</span>
           </div>
+          <p style="margin-top: 20px;">After copying the code, click here to reset your password:</p>
+          <a href="${process.env.DOMAIN}/reset-password" style="display: inline-block; background-color: #2563eb; color: white; padding: 12px 24px; text-decoration: none; border-radius: 6px; font-weight: bold;">Reset Password</a>
           <p style="color: #6b7280; font-size: 14px; margin-top: 20px;">This code will expire in 10 minutes.</p>
         </div>
       `,
