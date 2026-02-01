@@ -30,3 +30,8 @@ waitForPort = 5000
 
 [workflows.workflow.metadata]
 outputType = "webview"
+
+[userenv]
+
+[userenv.shared]
+DOMAIN = "https://signup-login-orpin.vercel.app/"
