@@ -67,10 +67,10 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="relative min-h-screen font-sans selection:bg-primary/30">
+    <div className="relative min-h-screen font-sans selection:bg-primary/30 bg-background text-foreground">
       <div className="fixed inset-0 -z-10 overflow-hidden">
-        <div className="absolute top-[-10%] left-[-10%] h-[40%] w-[40%] rounded-full bg-primary/10 blur-[120px]" />
-        <div className="absolute bottom-[-10%] right-[-10%] h-[40%] w-[40%] rounded-full bg-secondary/10 blur-[120px]" />
+        <div className="absolute top-[-10%] left-[-10%] h-[40%] w-[40%] rounded-full bg-primary/20 blur-[120px]" />
+        <div className="absolute bottom-[-10%] right-[-10%] h-[40%] w-[40%] rounded-full bg-secondary/20 blur-[120px]" />
       </div>
 
       <nav className="border-b border-white/10 glass px-6 py-4">
@@ -79,7 +79,7 @@ export default function Dashboard() {
             <span className="text-xs font-bold uppercase tracking-widest text-zinc-500">Dashboard</span>
           </Link>
           <div className="flex items-center gap-6">
-            <Link href="/" className="text-sm font-medium hover:text-primary transition-colors">
+            <Link href="/" className="text-sm font-medium text-zinc-400 hover:text-primary transition-colors">
               Back to Home
             </Link>
             <button 
@@ -109,7 +109,7 @@ export default function Dashboard() {
                   value={title}
                   onChange={(e) => setTitle(e.target.value)}
                   required
-                  className="w-full rounded-xl border border-zinc-200 bg-white/50 px-4 py-3 outline-none transition-all focus:border-primary focus:ring-4 focus:ring-primary/10 dark:border-zinc-800 dark:bg-black/20"
+                  className="w-full rounded-xl border border-zinc-800 bg-white/5 px-4 py-3 outline-none transition-all focus:border-primary focus:ring-4 focus:ring-primary/10"
                   placeholder="Enter title..."
                 />
               </div>
@@ -120,7 +120,7 @@ export default function Dashboard() {
                   onChange={(e) => setDescription(e.target.value)}
                   required
                   rows={4}
-                  className="w-full rounded-xl border border-zinc-200 bg-white/50 px-4 py-3 outline-none transition-all focus:border-primary focus:ring-4 focus:ring-primary/10 dark:border-zinc-800 dark:bg-black/20"
+                  className="w-full rounded-xl border border-zinc-800 bg-white/5 px-4 py-3 outline-none transition-all focus:border-primary focus:ring-4 focus:ring-primary/10"
                   placeholder="Enter description..."
                 />
               </div>
@@ -139,18 +139,18 @@ export default function Dashboard() {
             <div className="max-h-[600px] overflow-y-auto pr-2 space-y-4 custom-scrollbar">
               {fetching ? (
                 Array.from({ length: 3 }).map((_, i) => (
-                  <div key={i} className="h-32 w-full animate-pulse rounded-2xl bg-zinc-100 dark:bg-zinc-900" />
+                  <div key={i} className="h-32 w-full animate-pulse rounded-2xl bg-white/5" />
                 ))
               ) : details.length === 0 ? (
-                <div className="flex h-32 items-center justify-center rounded-2xl border-2 border-dashed border-zinc-200 dark:border-zinc-800">
+                <div className="flex h-32 items-center justify-center rounded-2xl border-2 border-dashed border-white/10">
                   <p className="text-zinc-500">No records found yet.</p>
                 </div>
               ) : (
                 details.map((detail) => (
                   <div key={detail._id} className="glass group rounded-2xl p-6 transition-all hover:border-primary/30">
                     <h3 className="mb-1 text-lg font-semibold">{detail.title}</h3>
-                    <p className="text-zinc-600 dark:text-zinc-400">{detail.description}</p>
-                    <div className="mt-4 text-xs text-zinc-400">
+                    <p className="text-zinc-400">{detail.description}</p>
+                    <div className="mt-4 text-xs text-zinc-500">
                       {new Date(detail.createdAt).toLocaleDateString()} at {new Date(detail.createdAt).toLocaleTimeString()}
                     </div>
                   </div>

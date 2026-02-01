@@ -6,11 +6,11 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen font-sans selection:bg-primary/30">
+    <div className="relative min-h-screen font-sans selection:bg-primary/30 bg-background text-foreground">
       {/* Background decoration */}
       <div className="fixed inset-0 -z-10 overflow-hidden">
-        <div className="absolute top-[-10%] left-[-10%] h-[40%] w-[40%] rounded-full bg-primary/10 blur-[120px]" />
-        <div className="absolute bottom-[-10%] right-[-10%] h-[40%] w-[40%] rounded-full bg-secondary/10 blur-[120px]" />
+        <div className="absolute top-[-10%] left-[-10%] h-[40%] w-[40%] rounded-full bg-primary/20 blur-[120px]" />
+        <div className="absolute bottom-[-10%] right-[-10%] h-[40%] w-[40%] rounded-full bg-secondary/20 blur-[120px]" />
       </div>
 
       <main className="mx-auto flex min-h-screen max-w-5xl flex-col items-center justify-center px-6 py-20 text-center">
@@ -19,7 +19,7 @@ export default function Home() {
           Secure <span className="gradient-text">Authentication</span>
         </h1>
         
-        <p className="mb-12 max-w-2xl text-lg text-zinc-600 dark:text-zinc-400 sm:text-xl">
+        <p className="mb-12 max-w-2xl text-lg text-zinc-400 sm:text-xl">
           Welcome to our modern authentication platform. Experience seamless signup and login with top-tier security and a sleek user interface.
         </p>
 
