@@ -4,6 +4,7 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 interface Detail {
   _id: string;
@@ -13,11 +14,17 @@ interface Detail {
 }
 
 export default function Dashboard() {
+  const router = useRouter();
   const [details, setDetails] = useState<Detail[]>([]);
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [loading, setLoading] = useState(false);
   const [fetching, setFetching] = useState(true);
+
+  const handleLogout = () => {
+    // In a real app, you'd also clear cookies/tokens here
+    router.push("/login");
+  };
 
   const fetchDetails = async () => {
     try {
@@ -71,9 +78,17 @@ export default function Dashboard() {
           <Link href="/" className="flex items-center gap-2">
             <span className="text-xs font-bold uppercase tracking-widest text-zinc-500">Dashboard</span>
           </Link>
-          <Link href="/" className="text-sm font-medium hover:text-primary transition-colors">
-            Back to Home
-          </Link>
+          <div className="flex items-center gap-6">
+            <Link href="/" className="text-sm font-medium hover:text-primary transition-colors">
+              Back to Home
+            </Link>
+            <button 
+              onClick={handleLogout}
+              className="text-sm font-medium text-red-500 hover:text-red-400 transition-colors"
+            >
+              Logout
+            </button>
+          </div>
         </div>
       </nav>
 
