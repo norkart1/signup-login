@@ -14,16 +14,6 @@ export default function Home() {
       </div>
 
       <main className="mx-auto flex min-h-screen max-w-5xl flex-col items-center justify-center px-6 py-20 text-center">
-        <div className="mb-12 animate-in fade-in slide-in-from-bottom-4 duration-1000">
-          <Image
-            className="dark:invert"
-            src="/next.svg"
-            alt="Next.js logo"
-            width={140}
-            height={28}
-            priority
-          />
-        </div>
         
         <h1 className="mb-6 text-5xl font-bold tracking-tight sm:text-7xl">
           Secure <span className="gradient-text">Authentication</span>

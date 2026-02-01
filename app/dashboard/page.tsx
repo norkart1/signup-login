@@ -69,13 +69,6 @@ export default function Dashboard() {
       <nav className="border-b border-white/10 glass px-6 py-4">
         <div className="mx-auto max-w-5xl flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <Image
-              className="dark:invert"
-              src="/next.svg"
-              alt="Next.js logo"
-              width={80}
-              height={16}
-            />
             <span className="text-xs font-bold uppercase tracking-widest text-zinc-500">Dashboard</span>
           </Link>
           <Link href="/" className="text-sm font-medium hover:text-primary transition-colors">
